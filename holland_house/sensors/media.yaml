@@ -1,0 +1,10 @@
+sensor:
+- platform: plex
+  host: 192.168.1.8
+  name: Tron
+  username: !secret plex_user
+  password: !secret plex_pass
+  server: Tron
+
+media_player:
+- platform: cast

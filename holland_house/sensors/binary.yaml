@@ -1,0 +1,5 @@
+binary_sensor:
+- platform: rpi_gpio
+  ports:
+    11: Alarms
+    12: PIR Bedroom

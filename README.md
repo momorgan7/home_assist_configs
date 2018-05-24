@@ -1,2 +1,2 @@
-# home_assist_holland
-Home Assistant Config for Holland House
+# home_assist_configs
+Collection of HomeAssistant configs

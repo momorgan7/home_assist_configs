@@ -60,6 +60,11 @@ tts:
 # Cloud
 cloud:
 
+camera:
+  - platform: local_file
+    name: door_cam
+    file_path: /share/motion/lastsnap.jpg
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml

@@ -1,8 +1,8 @@
 homeassistant:
   # Details
   name: Holland House
-  latitude: 40.4242
-  longitude: -79.8913
+  latitude: !secret latitude
+  longitude: !secret longitude
   elevation: 275
   unit_system: imperial
   time_zone: America/New_York
@@ -12,48 +12,23 @@ homeassistant:
 # Enables
 config:
 http:
-  # Secrets are defined in the file secrets.yaml
-  # api_password: !secret http_password
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
+logger:
+  default: error
 updater:
-discovery:
-# speech
-conversation:
-tts:
-  - platform: google
-
 history:
 logbook:
 # locattion
 map:
 # weather
 sun:
-sensor:
-  - platform: yr
-  - platform: plex
-    host: 192.168.1.8
-    name: Tron
-    username: !secret plex_user
-    password: !secret plex_pass
-    server: Tron
 
-
-# Cloud
-cloud:
 # sensors
-binary_sensor:
-- platform: rpi_gpio
-  ports:
-    11: Alarms
-    12: PIR Bedroom
-
-media_player:
-- platform: cast
+#binary_sensor: !include binary_sensor.yaml
+sensor: !include_dir_merge_list sensors/
 
 # includes
 frontend: !include frontend.yaml
 panel_custom: !include panel_custom.yaml
 group: !include groups.yaml
 automation: !include automation/automation.yaml
-script: !include scripts/scripts.yaml
+script: !include scripts.yaml
